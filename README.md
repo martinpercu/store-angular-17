@@ -1,3 +1,22 @@
+# Store Angular 17
+
+
+## First steps.
+- Start a the angular project.
+- Install Tailwind.
+- Organize with domain the structure. (products + info + about + shared... etc..)
+- Add pages and component folders for each domain. As example ...===>
+```sh
+ng g c domains/products/pages/list
+ng g c domains/products/components/product
+```
+- In app.routes.ts define path to the page/listComponent
+- Reduce the app.component. ===> template = <router-outlet /> + delete CSS.
+
+
+
+
+
 # StoreAngular17
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.1.
