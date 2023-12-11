@@ -16,7 +16,9 @@ ng g c domains/products/components/product
 ## Dual connection List Product
 - Add @Input + @Output connection from List(Parent) to Product(Child). 
 
-
+## Product Style
+- Using Flowbite to inspiration to use tailwind. Use for product.component.html
+- Add some gap in the list.component.html
 
 
 
