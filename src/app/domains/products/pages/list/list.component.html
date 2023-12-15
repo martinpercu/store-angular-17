@@ -1,9 +1,8 @@
 <div class="grid grid-cols-3 gap-4">
-  <app-product title="Tituleo" [price]="50" imageSrc="https://picsum.photos/500/500?r=14" (addToCart)="listenFromChild($event)"/>
-  <app-product title="Tiddtuleo" [price]="580" imageSrc="https://picsum.photos/500/500?r=12" (addToCart)="listenFromChild($event)" />
-  <app-product title="Tiqsqsqtuleo" [price]="5320" imageSrc="https://picsum.photos/500/500?r=11" (addToCart)="listenFromChild($event)" />
-  <app-product title="Titulsdfeo" [price]="150" imageSrc="https://picsum.photos/500/500?r=18" (addToCart)="listenFromChild($event)" />
-  <app-product title="Titussssleo" [price]="550" imageSrc="https://picsum.photos/500/500?r=114" (addToCart)="listenFromChild($event)" />
-  <app-product title="ddleo" [price]="250" imageSrc="https://picsum.photos/500/500?r=184" (addToCart)="listenFromChild($event)" />
+  @for (product of products(); track $index) {
+    <app-product
+      [product]="product"
+      (addToCart)="listenFromChild($event)"/>
+  }
 
 </div>
