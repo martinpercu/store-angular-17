@@ -1,4 +1,4 @@
-import { Component, signal, Input } from '@angular/core';
+import { Component, signal, Input, SimpleChanges } from '@angular/core';
 
 import { Product } from './../../models/product.model'
 
@@ -12,10 +12,20 @@ import { Product } from './../../models/product.model'
 export class HeaderComponent {
   hideSideMenu = signal(true);
   @Input({required: true}) cart: Product[] = [];
+  totalAmount = signal(0);
 
 
   toggleSideMenu() {
     this.hideSideMenu.update(previousState => !previousState)
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const cart = changes['cart'];
+    console.log('qsdfqsdf');
+
+    if (cart) {
+      this.totalAmount.set(this.calcTotalAmount())
+    }
   }
 
   calcTotalAmount() {
