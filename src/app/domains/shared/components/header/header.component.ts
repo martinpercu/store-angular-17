@@ -1,4 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, Input } from '@angular/core';
+
+import { Product } from './../../models/product.model'
 
 @Component({
   selector: 'app-header',
@@ -9,6 +11,12 @@ import { Component, signal } from '@angular/core';
 })
 export class HeaderComponent {
   hideSideMenu = signal(true);
+  @Input({required: true}) cart: Product[] = [];
+
+
+
+
+
 
   toggleSideMenu() {
     this.hideSideMenu.update(previousState => !previousState)

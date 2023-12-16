@@ -46,10 +46,15 @@ ng g c domains/shared/components/header
 - In header.html click in the cart button to activate this toogleSideMenu
 - change the class to [class.translate-x-full]="hideSideMenu()" 
 
-
-
-
-
+## Add product-to-cart
+- In list component a new cart as a list of Products
+- New method addToCart(). (similar to listenFromChild()) but receiving just a "Product"
+- In list.html add this to the addTocart Button.
+- In the product.ts in addToCartHandler the emit must to be the entired product.
+- In header new @Input to receive the state of the cart.
+- In list.component.HTML add the cart in the <app-header /> to <app-header [cart]="cart()"/>
+- In header.html new counter to show products quantities.
+- Make beaty the cart list ==> get from Flowbite
 
 
 
