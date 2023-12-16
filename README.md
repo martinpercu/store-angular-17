@@ -31,6 +31,13 @@ ng g c domains/products/components/product
 - In product.component.ts import the Model Product
 - Add the list.HTML to show this new list of products
 
+## Header component
+- New header component in the shared folder
+```sh
+ng g c domains/shared/components/header
+```
+- Add full html witho all we need for this header. (I used Flowbite to help for this)
+- This app-header will be everywhere we need it ===> example in list.component
 
 
 
