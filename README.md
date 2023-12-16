@@ -55,6 +55,7 @@ ng g c domains/shared/components/header
 - In list.component.HTML add the cart in the <app-header /> to <app-header [cart]="cart()"/>
 - In header.html new counter to show products quantities.
 - Make beaty the cart list ==> get from Flowbite
+- In header.ts add method to rerutn the total amount .... call this method in the HTML to show the total.
 
 
 

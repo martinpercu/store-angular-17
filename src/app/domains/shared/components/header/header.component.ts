@@ -14,12 +14,12 @@ export class HeaderComponent {
   @Input({required: true}) cart: Product[] = [];
 
 
-
-
-
-
   toggleSideMenu() {
     this.hideSideMenu.update(previousState => !previousState)
+  }
+
+  calcTotalAmount() {
+    return this.cart.reduce((total, product) => total + product.price, 0)
   }
 
 }

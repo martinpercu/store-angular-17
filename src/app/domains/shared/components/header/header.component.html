@@ -58,15 +58,12 @@
           <li class="py-3 sm:py-4">
             <div class="flex items-center">
               <div class="flex-shrink-0">
-                <img class="w-8 h-8 rounded-full" src="{{ product.image }}" alt="Neil image">
+                <img class="w-8 h-8 rounded-full" [src]="product.image" [alt]="product.title">
               </div>
               <div class="flex-1 min-w-0 ms-4">
                 <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
                   {{ product.title }}
                 </p>
-                <!-- <p class="text-sm text-gray-500 truncate dark:text-gray-400">
-                  ????
-                </p> -->
               </div>
               <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                 {{ product.price }} €
@@ -75,6 +72,9 @@
           </li>
         }
       </ul>
+      <div class="items-center text-base text-right font-semibold text-gray-900 dark:text-white">
+        TOTAL  {{ calcTotalAmount() }} €
+      </div>
 
     </div>
   </div>
