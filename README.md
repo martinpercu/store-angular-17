@@ -61,7 +61,15 @@ ng g c domains/shared/components/header
 - So We add ===> totalAmount = signal(0); Then using ngOnChanges add a logic to update the totalAmount using the method calcTotalAmount() before create and rendered in the HTML.
 - Now in the HTML only render the totalAmount() because this is a SIGNAL. 
 
-
+## Store for Cart
+- New service for cart.
+```sh
+ng g s domains/shared/services/cart
+```
+- This will be the store with the info of the cart.
+- Cart will be just a signal with the list of products inside
+- Also this service has the addToCart() method.
+- In header we import this cart service. We replace the old logic for the cart with the new cart service. (Anyway I left commented the old logic to see changes)
 
 
 
