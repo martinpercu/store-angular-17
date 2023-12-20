@@ -72,6 +72,18 @@ ng g s domains/shared/services/cart
 - In header we import this cart service. We replace the old logic for the cart with the new cart service. (Anyway I left commented the old logic to see changes)
 
 
+## API connection start
+- New service to connect the API only for one product.
+```sh
+ng g s domains/shared/services/product
+```
+- In app.config import ==> import { provideHttpClient } from '@angular/common/http'. Also add this in the providers provideHttpClient().
+- In list.component.ts import the productService. Add logic to bring
+
+
+
+
+
 
 # StoreAngular17
 
