@@ -78,7 +78,7 @@ ng g s domains/shared/services/cart
 ng g s domains/shared/services/product
 ```
 - In app.config import ==> import { provideHttpClient } from '@angular/common/http'. Also add this in the providers provideHttpClient().
-- In list.component.ts import the productService. Add logic to bring
+- In list.component.ts inject the productService. Add logic in the ngOnInit to bring the products in the API.
 
 
 

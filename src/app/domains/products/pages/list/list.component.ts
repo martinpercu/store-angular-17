@@ -78,7 +78,16 @@ export class ListComponent {
   // }
 
   ngOnInit() {
+    this.productService.getProducts()
+    .subscribe({
+      next: (products) => {
+        this.products.set(products)
+      },
+      error: () => {
+        console.log('ngOnInit error trying to connect API');
 
+      }
+    })
   }
   addToCart(product: Product) {
     // this.cart.update(previousState => [...previousState, product]);
