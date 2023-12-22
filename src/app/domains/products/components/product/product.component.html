@@ -9,7 +9,7 @@
     <div class="text-end font-medium">
      {{ product.price | currency:'€':'symbol':'1.2' }}
     </div>
-    <p class="text-xs font-medium text-gray-500">Added : ===> {{ product.creationAt | date:'shortDate' }}</p>
+    <p class="text-xs font-medium text-gray-500">Added {{ product.creationAt | timeAgo }}</p>
     <button class="text-black bg-gray-100 shadow-md font-medium rounded-md text-sm px-5 py-2.5 w-full"
       (click)="addToCartHandler()">Add to cart
     </button>
