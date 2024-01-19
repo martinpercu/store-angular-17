@@ -135,6 +135,10 @@ ng g c domains/shared/components/layout
 - The in app.routes.ts. add logic with children components in the layout.
 - Then in each html component using the header just delete it. (I left them commented to see the changes).
 
+## routerLinkActive
+- The header show the same "underline" in Home and not change when go to "about". So with routerlinkActive we control the styles depends on routes where we are.
+- In header.components.html add in all links "routerLinkActive="underline font-bold" This will add the style underline + font-fond.
+- IMPORTANT ===> in the "/" link add also this==> "routerLinkActiveOptions]="{exact: true}"" This will make that only apply the stytes in the EXACT path.
 
 
 
