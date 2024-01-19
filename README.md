@@ -117,6 +117,14 @@ ng g c domains/info/pages/not-found
 ```
 - In app.routes.ts add logic for this.
 
+## RouterLink
+- In the 404 page when click on button that will RELOAD the main page. Not really good for UX..... Routerlink will help
+- In not-found.ts ===> add "import { RouterLinkWithHref }  from '@angular/router';"
+- Then in not-found.html replace href with routerlink.
+- Now add the router link in the header to able go to "about","service" etc
+- Also add the header to the about.
+
+
 
 
 
