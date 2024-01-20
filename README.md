@@ -152,6 +152,36 @@ ng g c domains/products/pages/product-detail
 - In product.component.ts import { RouterLinkWithHref } from '@angular/router'.
 - With this we have the connexion to the new html
 
+## Get product data
+- In product.service. Add a method getOneProduct() to GET just one product. we will need just the product id to add in the request.
+- In product-detail.ts import { ProductService } from '@shared/services/product.service'.
+- In product-detail.ts add : private productService = inject(ProductService); to use the service.
+- The important thing here is get the id from the "@Input() id?: string;" (the "?" after id is because as is a route the user could write directlly and take. We have no control about this. So this could be null)
+- SUPER IMPORTANT to make this works in app.config in the provideRouter add the "withComponentInputBinding()".<br>
+provideRouter(routes, withComponentInputBinding()),<br>
+- This means for angular the parameters arrive as inputs.
+- To check this in the product-detail.ts add an ngOnInit() to see this parameters "id" is arriving ok.
+- If we get the product just create a product as signal ===> "product = signal<Product | null>(null);"
+- In ngOnInit set this signal with info from API. ===> "this.product.set(product)".
+- Now in product-detail.html using this data paint the component with product info. As example for the title ===> "{{ product()?.title }}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
