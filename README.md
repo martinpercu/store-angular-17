@@ -188,8 +188,22 @@ ng g s domains/shared/services/category
 - Then add a method to get the categories. Will be something similar as the product.service. In this case will be getAllCategories().
 - In products/pages/list.component (here is the list of product) HERE we will add the list of categories.
 - In list.component.ts inject this new service ===> "private categoryService = inject(CategoryService)". Import Category from Models. Create new signal "categories". Create method in ngOnInit to get the categories.
-
 - In list.component.html add a @for with the categories and puth category.name to show the name of each category. 
+
+## URL params to categories
+- Set using query params ===> category_id=x ===> x must show only products with x category.
+- In list.component.ts import { RouterLinkWithHref } from '@angular/router'.
+- In list.component.html add ===> "routerLink="/" [queryParams]="{category_id: category.id}"
+- This params will arrives as an input. So In list.component.ts ===> @Input() category_id?: string. 
+- Then to detect the category_id add a method in a ngOnChanges(). 
+- OK. Now we have a system to detect the category choose by the user.
+- One option could be "filter" the signal of products.
+- Another option much better is use the API. (this way is what will be implmented.)
+- First (to make much undestandable the code). In list.component.ts in the ngOnInit() the 2 methods take out and call this methods. ===> getProductsList() + getAllCategoriesList().
+- Just to check only one change (each click on the categories buttons)===>  "ngOnChanges(changes: SimpleChanges)". Here with any change call the get getProductsList().
+- In product.service in method getProducts() implement logic to add the category_id if exist to the query. ===> "getProducts(category_id?: string){}"
+- In list.component.ts in "private getProductsList()" .... remember is the method that call the service to get the list of products. Here ====> "this.productService.getProducts(this.category_id)". Remember category_id could be undefined.
+- With this must works fine everything.
 
 
 

@@ -1,6 +1,8 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, signal, inject, Input, SimpleChanges } from '@angular/core';
 // import { ProductComponent } from './../../components/product/product.component';
 import { ProductComponent } from '@products/components/product/product.component';
+
+import { RouterLinkWithHref } from '@angular/router'
 
 import { Product } from '@shared/models/product.model'
 import { Category } from '@shared/models/category.model'
@@ -11,10 +13,12 @@ import { CartService } from '@shared/services/cart.service';
 import { ProductService } from '@shared/services/product.service';
 import { CategoryService } from '@shared/services/category.service';
 
+// import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [ProductComponent, HeaderComponent],
+  imports: [ProductComponent, HeaderComponent, RouterLinkWithHref],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
@@ -27,6 +31,8 @@ export class ListComponent {
   private cartService = inject(CartService);
   private productService = inject(ProductService);
   private categoryService = inject(CategoryService);
+  @Input() category_id?: string;
+
 
   // constructor() {
   //   const initialProducts: Product[] = [
@@ -84,32 +90,45 @@ export class ListComponent {
   // }
 
   ngOnInit() {
-    this.productService.getProducts()
-    .subscribe({
-      next: (products) => {
-        this.products.set(products)
-      },
-      error: () => {
-        console.log('ngOnInit error trying to connect API');
-      }
-    });
+    this.getProductsList();
+    this.getAllCategoriesList();
+  }
 
-    this.categoryService.getAllCategories()
-    .subscribe({
-      next: (categories) => {
-        this.categories.set(categories)
-      },
-      error: () => {
-        console.log('ngOnInit error trying to connect API');
-      }
-    });
-
+  ngOnChanges(changes: SimpleChanges) {
+    const category_id = changes['category_id'];
+    if (category_id) {
+      this.getProductsList()
+    }
   }
 
 
   addToCart(product: Product) {
     // this.cart.update(previousState => [...previousState, product]);
     this.cartService.addToCart(product);
+  }
+
+  private getProductsList() {
+    this.productService.getProducts(this.category_id)
+    .subscribe({
+      next: (products) => {
+        this.products.set(products)
+      },
+      error: () => {
+        console.log('just after ngOnInit error trying to connect API');
+      }
+    });
+  }
+
+  private getAllCategoriesList() {
+    this.categoryService.getAllCategories()
+    .subscribe({
+      next: (categories) => {
+        this.categories.set(categories)
+      },
+      error: () => {
+        console.log('just after ngOnInit error trying to connect API');
+      }
+    });
   }
 
 
