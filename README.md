@@ -204,6 +204,9 @@ ng g s domains/shared/services/category
 - In product.service in method getProducts() implement logic to add the category_id if exist to the query. ===> "getProducts(category_id?: string){}"
 - In list.component.ts in "private getProductsList()" .... remember is the method that call the service to get the list of products. Here ====> "this.productService.getProducts(this.category_id)". Remember category_id could be undefined.
 - With this must works fine everything.
+- Important REMOVE the this.getProductsList() from the ngOnInit() because NOW we have the same in the ngOnChanges(). ngOnChanges run one we load the component and also each time detect any change.
+- Important plus!!. Also we could avoid use the if (category_id) in the ngOnChanges() because if category_id exist or not is not a problem because in our method in product.service manage this. (I left commented the old ngOnChanges() to see the differences).
+
 
 
 

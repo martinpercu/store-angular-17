@@ -90,15 +90,19 @@ export class ListComponent {
   // }
 
   ngOnInit() {
-    this.getProductsList();
+    // this.getProductsList();
     this.getAllCategoriesList();
   }
 
+  // ngOnChanges(changes: SimpleChanges) {
+  //   const category_id = changes['category_id'];
+  //   if (category_id) {
+  //     this.getProductsList()
+  //   }
+  // }
+
   ngOnChanges(changes: SimpleChanges) {
-    const category_id = changes['category_id'];
-    if (category_id) {
-      this.getProductsList()
-    }
+    this.getProductsList()
   }
 
 
