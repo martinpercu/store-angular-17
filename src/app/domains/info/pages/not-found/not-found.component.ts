@@ -7,6 +7,6 @@ import { RouterLinkWithHref }  from '@angular/router';
   imports: [RouterLinkWithHref],
   templateUrl: './not-found.component.html',
 })
-export class NotFoundComponent {
+export default class NotFoundComponent {
 
 }

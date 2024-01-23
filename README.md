@@ -207,6 +207,14 @@ ng g s domains/shared/services/category
 - Important REMOVE the this.getProductsList() from the ngOnInit() because NOW we have the same in the ngOnChanges(). ngOnChanges run one we load the component and also each time detect any change.
 - Important plus!!. Also we could avoid use the if (category_id) in the ngOnChanges() because if category_id exist or not is not a problem because in our method in product.service manage this. (I left commented the old ngOnChanges() to see the differences).
 
+## LazyLoading split code
+- Split the code first by routes.
+- In app.routes replace the "component" with "loadComponent" ===> this is a dynamic import so the components will be call with "() => import(./domain etc etc).then(c => c.Component)".
+- So for the ListComponents shoud be ==>: <br>
+loadComponent: () => import ('./domains/products/pages/list/list.component').then(compo => compo.ListComponent)<br>
+- With this Angular will create a chunk for the ListComponent
+- Is possible avoid use the '.then()' in the app.routes if the component called change the "export class ListComponent" with "export default class ListComponent". I will do this in "about" and "product-detail" components. Also I left commented the non Lazyloading way.
+
 
 
 
