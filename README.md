@@ -215,6 +215,12 @@ loadComponent: () => import ('./domains/products/pages/list/list.component').the
 - With this Angular will create a chunk for the ListComponent
 - Is possible avoid use the '.then()' in the app.routes if the component called change the "export class ListComponent" with "export default class ListComponent". I will do this in "about" and "product-detail" components. Also I left commented the non Lazyloading way.
 
+## Prefetching
+- This is REALLY IMPORTANT because if the user is using a slow connection each first time loading a chunk will start loading it at this exact moment. With Prefetching once all needed chunks are already loaded the app continue to load the others not yet needed to have in memory ready to use.
+- In app.config ==> import {withPreloading} from @angular/router.
+- In app.config ==> add in provideRouter() "withPreloading(PreloadAllModules)".
+- Important "PreloadAllModules" is the strategy Angular will use.
+
 
 
 
