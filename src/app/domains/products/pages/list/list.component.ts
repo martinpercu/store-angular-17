@@ -108,6 +108,7 @@ export class ListComponent {
 
   addToCart(product: Product) {
     // this.cart.update(previousState => [...previousState, product]);
+    product.quantity = 1;
     this.cartService.addToCart(product);
   }
 
