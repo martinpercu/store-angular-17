@@ -24,6 +24,7 @@ export class CartService {
   constructor() { }
 
   addToCart(product: Product) {
+    product.quantity = 1;
     if (this.cart().find(item => item.id === product.id)) {
       const myProductIndex = this.cart().findIndex(item => item.id === product.id)
       console.log(myProductIndex);
