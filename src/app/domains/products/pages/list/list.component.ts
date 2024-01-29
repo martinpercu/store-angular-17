@@ -131,7 +131,7 @@ export class ListComponent {
         this.categories.set(categories)
       },
       error: () => {
-        console.log('just after ngOnInit error trying to connect API');
+        console.log('just after ngOnInit error trying to connect API !');
       }
     });
   }
