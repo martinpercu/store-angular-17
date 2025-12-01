@@ -13,6 +13,9 @@ ng g c domains/products/components/product
 - In app.routes.ts define path to the page/listComponent
 - Reduce the app.component. ===> template = <router-outlet /> + delete CSS.
 
+## Dual connection List Product
+- Add @Input + @Output connection from List(Parent) to Product(Child). 
+
 
 
 
