@@ -20,6 +20,16 @@ ng g c domains/products/components/product
 - Using Flowbite to inspiration to use tailwind. Use for product.component.html
 - Add some gap in the list.component.html
 
+## About Us
+- New route for about us.
+- Add a "remember lifecycle of component"
+- For the about add an audio player with WaveSurfer js.
+
+
+
+
+
+
 
 
 # StoreAngular17
