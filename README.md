@@ -39,7 +39,12 @@ ng g c domains/shared/components/header
 - Add full html witho all we need for this header. (I used Flowbite to help for this)
 - This app-header will be everywhere we need it ===> example in list.component
 
-
+## Cart Header
+- Add the html Cart Header with a class translate-x-full to have it "hidden" from the viewport. 
+- Now when not allow this "translate-x-full" the cart is showed.
+- In header.ts ==> hideSideMenu = signal(true); then a method ==> toggleSideMenu()
+- In header.html click in the cart button to activate this toogleSideMenu
+- change the class to [class.translate-x-full]="hideSideMenu()" 
 
 
 
