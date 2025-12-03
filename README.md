@@ -25,6 +25,17 @@ ng g c domains/products/components/product
 - Add a "remember lifecycle of component"
 - For the about add an audio player with WaveSurfer js.
 
+## Product model implementation
+- New models folder in shared for the product ====> product.model.ts
+- In List.component.ts import the Model Product
+- In product.component.ts import the Model Product
+- Add the list.HTML to show this new list of products
+
+
+
+
+
+
 
 
 
