@@ -16,7 +16,8 @@ export class ProductComponent {
 
   addToCartHandler() {
     console.log('clicking from the child');
-    this.addToCart.emit('este produto goes to the cart ==> ' + this.product.title + "\n" + "this is the price ===> " + this.product.price);
+    // this.addToCart.emit('este produto goes to the cart ==> ' + this.product.title + "\n" + "this is the price ===> " + this.product.price);
+    this.addToCart.emit(this.product);
   }
 
 }

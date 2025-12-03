@@ -46,10 +46,20 @@ ng g c domains/shared/components/header
 - In header.html click in the cart button to activate this toogleSideMenu
 - change the class to [class.translate-x-full]="hideSideMenu()" 
 
-
-
-
-
+## Add product-to-cart
+- In list component a new cart as a list of Products
+- New method addToCart(). (similar to listenFromChild()) but receiving just a "Product"
+- In list.html add this to the addTocart Button.
+- In the product.ts in addToCartHandler the emit must to be the entired product.
+- In header new @Input to receive the state of the cart.
+- In list.component.HTML add the cart in the <app-header /> to <app-header [cart]="cart()"/>
+- In header.html new counter to show products quantities.
+- Make beaty the cart list ==> get from Flowbite
+- In header.ts add method to return the total amount .... call this method in the HTML to show the total.
+- IMPORTANT!! if we add a method directly in the HTML to be render IS NOT GOOD to practice. The only good practice to show a method if it is a SIGNAL. Otherwise we could get render issues.
+- So we need to find a better way to show the total amount.... the solution could be getting the total amount each time we add a product.
+- So We add ===> totalAmount = signal(0); Then using ngOnChanges add a logic to update the totalAmount using the method calcTotalAmount() before create and rendered in the HTML.
+- Now in the HTML only render the totalAmount() because this is a SIGNAL. 
 
 
 
