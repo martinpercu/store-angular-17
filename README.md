@@ -80,6 +80,11 @@ ng g s domains/shared/services/product
 - In app.config import ==> import { provideHttpClient } from '@angular/common/http'. Also add this in the providers provideHttpClient().
 - In list.component.ts inject the productService. Add logic in the ngOnInit to bring the products in the API.
 
+## TSCONFIG Path
+- In root in file tsconfig.json in the "compilerOptions" add "path". The path will allow to code @shared/ intead  the "./../../../shared" 
+- We do the same for all domains in order to do clear code in the future.
+- Replace of ./../../../ everywhere we want.
+
 
 
 
