@@ -85,6 +85,12 @@ ng g s domains/shared/services/product
 - We do the same for all domains in order to do clear code in the future.
 - Replace of ./../../../ everywhere we want.
 
+## Pipes for style
+- I will add using pipes some improvement to html. uppercases, currency etc
+- In product component.
+- IMPORTANT. Now in Angular 17 we need to import from '@angular/common' or Each pipe like CurrencyPipe OR directly the CommonModule to get all Directives and Pipes from Angular. (https://angular.io/api/common/CommonModule).
+- I will import only what I need.
+
 
 
 
