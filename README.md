@@ -91,6 +91,24 @@ ng g s domains/shared/services/product
 - IMPORTANT. Now in Angular 17 we need to import from '@angular/common' or Each pipe like CurrencyPipe OR directly the CommonModule to get all Directives and Pipes from Angular. (https://angular.io/api/common/CommonModule).
 - I will import only what I need.
 
+## Custom Pipe
+- New pipe to connect the API only for one product.
+```sh
+ng g p domains/shared/pipes/time-ago
+```
+- Install npm date functions. (great to manage dates)
+```sh
+npm i date-fns
+```
+- Add the logic to get a how much time from the creationAt of products.
+
+
+
+
+
+
+
+
 
 
 
