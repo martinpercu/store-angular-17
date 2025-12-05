@@ -124,6 +124,16 @@ ng g c domains/info/pages/not-found
 - Now add the router link in the header to able go to "about","service" etc
 - Also add the header to the about.
 
+## Nested pages - Layout
+- The header-nav bar is a common component in all site. So is time to prepare the site for nested pages.
+- New component "not found"
+```sh
+ng g c domains/shared/components/layout
+```
+- In new layout component import { RouterOutlet } from '@angular/router';
+- In new layout component import { HeaderComponent } from '@shared/components/header/header.component'
+- The in app.routes.ts. add logic with children components in the layout.
+- Then in each html component using the header just delete it. (I left them commented to see the changes).
 
 
 
