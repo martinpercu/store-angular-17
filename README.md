@@ -140,6 +140,17 @@ ng g c domains/shared/components/layout
 - In header.components.html add in all links "routerLinkActive="underline font-bold" This will add the style underline + font-fond.
 - IMPORTANT ===> in the "/" link add also this==> "routerLinkActiveOptions]="{exact: true}"" This will make that only apply the stytes in the EXACT path.
 
+## Product detail start
+- Create new component for the product detail
+```sh
+ng g c domains/products/pages/product-detail
+```
+- In the new peoduct-detail.html add the html base structure for this component.
+- In app.routes add the new page in the routes.
+- IMPORTANT ===> add the id of the product in the path!!! ====> product/:id
+- In product.component.html replace the href with the [routerLink]="['/product', product.id]"
+- In product.component.ts import { RouterLinkWithHref } from '@angular/router'.
+- With this we have the connexion to the new html
 
 
 
