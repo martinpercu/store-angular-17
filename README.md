@@ -110,8 +110,12 @@ ng g d domains/shared/directives/highlight
 - In the new highligth.directive I add some simple function
 - In about.component I use this directive as "powerhighlight" in an span
 
-
-
+## 404 - ERROR
+- New component "not found"
+```sh
+ng g c domains/info/pages/not-found
+```
+- In app.routes.ts add logic for this.
 
 
 
