@@ -1,23 +1,30 @@
-<div class="px-8">
-  <h2 class="text-lg font-semibold">About</h2>
-  <p class="text-sm">Lorem, ipsum dolor sit amet <span powerhighlight>consectetur adipisicte aperiam</span> inventore tempora dolore!</p>
-  <p class="text-sm">Number <span powerhighlight>of client!!! </span>
-    @if (duration() > 0) {
+<div class="container m-5">
+  <!-- <app-header [cart]="cart()"/> -->
+  <app-header />
+
+  <div class="px-8">
+    <h2 class="text-lg font-semibold">About</h2>
+    <p class="text-sm">Lorem, ipsum dolor sit amet <span powerhighlight>consectetur adipisicte aperiam</span> inventore
+      tempora dolore!</p>
+    <p class="text-sm">Number <span powerhighlight>of client!!! </span>
+      @if (duration() > 0) {
       <app-counter [duration]="duration()" [message]="message()" />
+      }
+    </p>
+    <div>
+      <app-audio-wave audioUrl="assets/audio-01.mp3" />
+    </div>
+  </div>
+  <p>
+    <input type="number" [value]="duration()" (change)="changeDuration($event)">
+  </p>
+  <p>
+    <input type="text" [value]="message()" (change)="changeMessage($event)">
+  </p>
+  <p>
+    @if (duration() > 0) {
+    <app-counter [duration]="duration()" [message]="message()" />
     }
   </p>
-  <div>
-    <app-audio-wave  audioUrl="assets/audio-01.mp3"/>
-  </div>
+
 </div>
-<p>
-  <input type="number" [value]="duration()" (change)="changeDuration($event)">
-</p>
-<p>
-  <input type="text" [value]="message()" (change)="changeMessage($event)">
-</p>
-<p>
-  @if (duration() > 0) {
-    <app-counter [duration]="duration()" [message]="message()" />
-  }
-</p>
