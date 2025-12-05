@@ -3,10 +3,12 @@ import { Component, signal } from '@angular/core';
 import { CounterComponent } from './../../../shared/components/counter/counter.component';
 import { AudioWaveComponent } from './../../../info/components/audio-wave/audio-wave.component';
 
+import { HighlightDirective } from '@shared/directives/highlight.directive'
+
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CounterComponent, AudioWaveComponent],
+  imports: [CounterComponent, AudioWaveComponent, HighlightDirective],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })

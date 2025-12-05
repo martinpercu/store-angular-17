@@ -102,6 +102,14 @@ npm i date-fns
 ```
 - Add the logic to get a how much time from the creationAt of products.
 
+## Directive template
+- New directive
+```sh
+ng g d domains/shared/directives/highlight
+```
+- In the new highligth.directive I add some simple function
+- In about.component I use this directive as "powerhighlight" in an span
+
 
 
 
