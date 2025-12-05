@@ -102,6 +102,93 @@ npm i date-fns
 ```
 - Add the logic to get a how much time from the creationAt of products.
 
+## Directive template
+- New directive
+```sh
+ng g d domains/shared/directives/highlight
+```
+- In the new highligth.directive I add some simple function
+- In about.component I use this directive as "powerhighlight" in an span
+
+## 404 - ERROR
+- New component "not found"
+```sh
+ng g c domains/info/pages/not-found
+```
+- In app.routes.ts add logic for this.
+
+## RouterLink
+- In the 404 page when click on button that will RELOAD the main page. Not really good for UX..... Routerlink will help
+- In not-found.ts ===> add "import { RouterLinkWithHref }  from '@angular/router';"
+- Then in not-found.html replace href with routerlink.
+- Now add the router link in the header to able go to "about","service" etc
+- Also add the header to the about.
+
+## Nested pages - Layout
+- The header-nav bar is a common component in all site. So is time to prepare the site for nested pages.
+- New component "not found"
+```sh
+ng g c domains/shared/components/layout
+```
+- In new layout component import { RouterOutlet } from '@angular/router';
+- In new layout component import { HeaderComponent } from '@shared/components/header/header.component'
+- The in app.routes.ts. add logic with children components in the layout.
+- Then in each html component using the header just delete it. (I left them commented to see the changes).
+
+## routerLinkActive
+- The header show the same "underline" in Home and not change when go to "about". So with routerlinkActive we control the styles depends on routes where we are.
+- In header.components.html add in all links "routerLinkActive="underline font-bold" This will add the style underline + font-fond.
+- IMPORTANT ===> in the "/" link add also this==> "routerLinkActiveOptions]="{exact: true}"" This will make that only apply the stytes in the EXACT path.
+
+## Product detail start
+- Create new component for the product detail
+```sh
+ng g c domains/products/pages/product-detail
+```
+- In the new peoduct-detail.html add the html base structure for this component.
+- In app.routes add the new page in the routes.
+- IMPORTANT ===> add the id of the product in the path!!! ====> product/:id
+- In product.component.html replace the href with the [routerLink]="['/product', product.id]"
+- In product.component.ts import { RouterLinkWithHref } from '@angular/router'.
+- With this we have the connexion to the new html
+
+## Get product data
+- In product.service. Add a method getOneProduct() to GET just one product. we will need just the product id to add in the request.
+- In product-detail.ts import { ProductService } from '@shared/services/product.service'.
+- In product-detail.ts add : private productService = inject(ProductService); to use the service.
+- The important thing here is get the id from the "@Input() id?: string;" (the "?" after id is because as is a route the user could write directlly and take. We have no control about this. So this could be null)
+- SUPER IMPORTANT to make this works in app.config in the provideRouter add the "withComponentInputBinding()".<br>
+provideRouter(routes, withComponentInputBinding()),<br>
+- This means for angular the parameters arrive as inputs.
+- To check this in the product-detail.ts add an ngOnInit() to see this parameters "id" is arriving ok.
+- If we get the product just create a product as signal ===> "product = signal<Product | null>(null);"
+- In ngOnInit set this signal with info from API. ===> "this.product.set(product)".
+- Now in product-detail.html using this data paint the component with product info. As example for the title ===> "{{ product()?.title }}"
+
+## Image gallery
+- To add a cool implementation to show the main picture this will be another signal ====> "mainPicture = signal<string| null>(null)". 
+- Then create a method changeMainPicture() to set this signal to the new image. The click for this methods is in the little others images in product detail.
+- Assign the mainPicture() in the [src] of the big image.
+- To add the Category name create a new category model. Then Import this into product model. Then use "product()?.category?.name" in the product detail html.
+
+## Product detail to Cart
+- This is similar to the list product. 
+- In product-detail.ts inject the cartService
+- In product-detail.ts create method addProductToCart().... 
+- IMPORTANT as the cartService addToCart() only accept a "product" in the mothod addProductToCart() we must create a const product = this.product().
+- A little plus for html gallery + adding a dinamic class with conditional if the image is the same as the main image ===> "[class.border-blue-300]="image === mainPicture()"  
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
