@@ -171,6 +171,12 @@ provideRouter(routes, withComponentInputBinding()),<br>
 - Assign the mainPicture() in the [src] of the big image.
 - To add the Category name create a new category model. Then Import this into product model. Then use "product()?.category?.name" in the product detail html.
 
+## Product detail to Cart
+- This is similar to the list product. 
+- In product-detail.ts inject the cartService
+- In product-detail.ts create method addProductToCart().... 
+- IMPORTANT as the cartService addToCart() only accept a "product" in the mothod addProductToCart() we must create a const product = this.product().
+- A little plus for html gallery + adding a dinamic class with conditional if the image is the same as the main image ===> "[class.border-blue-300]="image === mainPicture()"  
 
 
 
