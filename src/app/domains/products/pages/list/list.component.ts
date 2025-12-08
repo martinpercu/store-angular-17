@@ -3,10 +3,13 @@ import { Component, signal, inject } from '@angular/core';
 import { ProductComponent } from '@products/components/product/product.component';
 
 import { Product } from '@shared/models/product.model'
+import { Category } from '@shared/models/category.model'
+
 import { HeaderComponent } from '@shared/components/header/header.component'
 
 import { CartService } from '@shared/services/cart.service';
 import { ProductService } from '@shared/services/product.service';
+import { CategoryService } from '@shared/services/category.service';
 
 @Component({
   selector: 'app-list',
@@ -19,9 +22,11 @@ export class ListComponent {
 
   products = signal<Product[]>([]);
   // cart = signal<Product[]>([]);
+  categories = signal<Category[]>([]);
 
   private cartService = inject(CartService);
   private productService = inject(ProductService);
+  private categoryService = inject(CategoryService);
 
   // constructor() {
   //   const initialProducts: Product[] = [
@@ -86,13 +91,26 @@ export class ListComponent {
       },
       error: () => {
         console.log('ngOnInit error trying to connect API');
-
       }
-    })
+    });
+
+    this.categoryService.getAllCategories()
+    .subscribe({
+      next: (categories) => {
+        this.categories.set(categories)
+      },
+      error: () => {
+        console.log('ngOnInit error trying to connect API');
+      }
+    });
+
   }
+
+
   addToCart(product: Product) {
     // this.cart.update(previousState => [...previousState, product]);
     this.cartService.addToCart(product);
   }
+
 
 }

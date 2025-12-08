@@ -178,8 +178,18 @@ provideRouter(routes, withComponentInputBinding()),<br>
 - IMPORTANT as the cartService addToCart() only accept a "product" in the mothod addProductToCart() we must create a const product = this.product().
 - A little plus for html gallery + adding a dinamic class with conditional if the image is the same as the main image ===> "[class.border-blue-300]="image === mainPicture()"  
 
+## Category Bar
+- From the API we will get the category list.
+- So create a service to manage the "categories".
+```sh
+ng g s domains/shared/services/category
+```
+- In the new file category.service add the injection dependency ====> "private http = inject(HttpClient)".
+- Then add a method to get the categories. Will be something similar as the product.service. In this case will be getAllCategories().
+- In products/pages/list.component (here is the list of product) HERE we will add the list of categories.
+- In list.component.ts inject this new service ===> "private categoryService = inject(CategoryService)". Import Category from Models. Create new signal "categories". Create method in ngOnInit to get the categories.
 
-
+- In list.component.html add a @for with the categories and puth category.name to show the name of each category. 
 
 
 
