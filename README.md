@@ -165,6 +165,12 @@ provideRouter(routes, withComponentInputBinding()),<br>
 - In ngOnInit set this signal with info from API. ===> "this.product.set(product)".
 - Now in product-detail.html using this data paint the component with product info. As example for the title ===> "{{ product()?.title }}"
 
+## Image gallery
+- To add a cool implementation to show the main picture this will be another signal ====> "mainPicture = signal<string| null>(null)". 
+- Then create a method changeMainPicture() to set this signal to the new image. The click for this methods is in the little others images in product detail.
+- Assign the mainPicture() in the [src] of the big image.
+- To add the Category name create a new category model. Then Import this into product model. Then use "product()?.category?.name" in the product detail html.
+
 
 
 
