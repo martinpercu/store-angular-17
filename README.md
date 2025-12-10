@@ -1,4 +1,132 @@
-# Store Angular 17
+# Angular17-Ecommerce-SPA
+
+Modern e-commerce Single Page Application built with **Angular 17**, demonstrating latest Angular features including signals, standalone components, and advanced routing patterns.
+
+## 🚀 Live Demo
+https://store-angular-17-six.vercel.app
+
+## ✨ Key Features
+
+- **Angular 17 Signals**: Reactive state management with Angular's new signals API
+- **Standalone Components**: No NgModules, fully standalone architecture
+- **Smart Routing**: Lazy loading with prefetching strategy for optimal performance
+- **Cart Management**: Global cart service with signal-based state
+- **API Integration**: RESTful API consumption with HttpClient
+- **Responsive Design**: Tailwind CSS with Flowbite components
+- **Advanced Routing**: Nested routes, route parameters, query params, and routerLink
+- **Custom Pipes & Directives**: TimeAgo pipe, highlight directive
+- **Category Filtering**: Dynamic product filtering with URL query params
+
+## 🛠️ Tech Stack
+
+- **Framework:** Angular 17 (standalone components)
+- **Styling:** Tailwind CSS + Flowbite
+- **State Management:** Angular Signals
+- **Routing:** Angular Router with lazy loading
+- **HTTP:** Angular HttpClient
+- **Utilities:** date-fns for date manipulation
+
+## 🎯 Angular 17 Features Demonstrated
+
+| Feature | Implementation |
+|---------|----------------|
+| **Signals** | Cart state, product lists, totals |
+| **Standalone Components** | All components are standalone (no NgModules) |
+| **Input Binding** | Route params as component inputs with `withComponentInputBinding()` |
+| **Lazy Loading** | Dynamic imports with `loadComponent` |
+| **Prefetching** | `PreloadAllModules` strategy for optimal performance |
+| **Signal Inputs** | `@Input()` with signal integration |
+| **RouterLink** | Declarative navigation with `routerLinkActive` |
+
+## 🚀 Quick Start
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+ng serve
+
+# Navigate to http://localhost:4200/
+```
+
+## 📁 Project Structure
+```
+src/app/
+├── domains/
+│   ├── products/
+│   │   ├── pages/list           # Product catalog
+│   │   ├── pages/product-detail # Product details
+│   │   └── components/product   # Product card component
+│   ├── info/
+│   │   └── pages/about          # About page
+│   └── shared/
+│       ├── components/
+│       │   ├── header           # Navigation header
+│       │   └── layout           # Main layout wrapper
+│       ├── services/
+│       │   ├── cart.service     # Global cart management
+│       │   ├── product.service  # Product API calls
+│       │   └── category.service # Category API calls
+│       ├── models/              # TypeScript interfaces
+│       ├── pipes/               # Custom pipes (TimeAgo)
+│       └── directives/          # Custom directives (Highlight)
+└── app.routes.ts                # Application routes
+```
+
+## 🎓 Key Concepts Demonstrated
+
+### Signals for State Management
+```typescript
+// Cart service using signals
+cart = signal<Product[]>([]);
+totalAmount = signal(0);
+
+addToCart(product: Product) {
+  this.cart.update(state => [...state, product]);
+}
+```
+
+### Lazy Loading with Prefetching
+```typescript
+// app.config.ts
+provideRouter(
+  routes,
+  withComponentInputBinding(),
+  withPreloading(PreloadAllModules)
+)
+```
+
+### Route Parameters as Inputs
+```typescript
+// product-detail.component.ts
+@Input() id?: string;  // Automatically bound from route params
+```
+
+### Smart Cart Management
+- Signal-based reactive state
+- Automatic total calculation with `computed()`
+- Lifecycle-aware updates with `ngOnChanges()`
+
+## 📦 Features Breakdown
+
+- **Product Catalog**: Grid display with category filtering
+- **Product Details**: Image gallery, add to cart, dynamic routing
+- **Shopping Cart**: Side menu with item management and totals
+- **Category Navigation**: URL-based filtering with query params
+- **Responsive Header**: With cart counter and navigation
+- **404 Page**: Proper error handling with routing
+- **Custom Pipes**: TimeAgo for date formatting
+- **Custom Directives**: Highlight for visual effects
+
+## 🔧 Build & Deploy
+```bash
+# Build for production
+ng build
+
+# Build artifacts will be in dist/
+```
+
+---
 
 
 ## First steps.
