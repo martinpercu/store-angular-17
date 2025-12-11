@@ -108,6 +108,7 @@ export class ListComponent {
 
   addToCart(product: Product) {
     // this.cart.update(previousState => [...previousState, product]);
+    // product.quantity = 1;  ===> I left the quentity = 1 directly in the cart service.
     this.cartService.addToCart(product);
   }
 
@@ -130,7 +131,7 @@ export class ListComponent {
         this.categories.set(categories)
       },
       error: () => {
-        console.log('just after ngOnInit error trying to connect API');
+        console.log('just after ngOnInit error trying to connect API !');
       }
     });
   }

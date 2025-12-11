@@ -19,6 +19,7 @@ export class HeaderComponent {
   private cartService = inject(CartService);
   cart = this.cartService.cart;
   totalAmount = this.cartService.totalAmount;
+  totalItems = this.cartService.totalItems;
 
 
   toggleSideMenu() {

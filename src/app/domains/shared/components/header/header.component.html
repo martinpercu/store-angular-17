@@ -2,7 +2,7 @@
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <div class="flex items-center space-x-8">
       <a routerLink="/" class="flex items-center ">
-        <img src="./assets/smile.jpeg" class="w-8 h-8 rounded-full mr-3 hover:animate-spin" alt="Flowbite Logo" />
+        <img src="./assets/smile.jpeg" class="w-8 h-8 rounded-full mr-3 hover:animate-spin" alt="17 - Logo" />
         <span class="self-center text-xl font-semibold whitespace-nowrap">17-STORE</span>
       </a>
       <ul class="flex space-x-6">
@@ -24,6 +24,7 @@
     <div class="flex items-center">
       <button class="px-4" (click)="toggleSideMenu()">
         <div class="relative -left-5 rounded h-6 w-6 bg-blue-800 text-gray-200 text-sm">{{ cart().length }}</div>
+        <div class="relative left-5 rounded h-6 w-6 bg-blue-800 text-gray-200 text-sm"> {{ totalItems() }}</div>
 
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
           class="w-6 h-6">
